@@ -1,0 +1,485 @@
+// out: music.css, compress:true, sourceMap:false
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #ededed;
+}
+.container{
+    width: 904px;
+    height: 728px;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 6px;
+    box-shadow:0px 0px  10px 2px #aaa;
+    .oneStep{
+        .title{
+            width: 100%;
+            height: 146px;
+            line-height: 146px;
+            font-size: 38px;
+            color: #000000;
+            text-align: center;
+            // letter-spacing: 2px;
+        }
+        label{
+            display: inline-block;
+            width: 345px;
+            text-align: right;
+            font-size: 18px;
+            span{
+                color: red;
+                font-weight: bold;
+            }
+        }
+        input{
+            width: 330px;
+            height: 42px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 18px;
+            text-indent: 10px;
+        }
+        .name{
+            width: 100%;
+            height:auto;
+            margin-bottom: 20px;
+            &.last{
+                margin-bottom: 38px;
+            }
+        }
+        .idCard{
+            width: 100%;
+            height: 186px;
+            .card{
+                width: 330px;
+                height: 180px;
+                border: 1px solid #cccccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+                margin-left: 6px;
+                padding-top: 14px;
+                .photo{
+                    width: 108px;
+                    height: 108px;
+                    margin-left: 14px;
+                    background: black;
+                    float: left;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p{
+                    width: 170px;
+                    float: left;
+                    margin-left: 20px;
+                    font-size: 15px;
+                    line-height: 25px;
+                }
+                .addImg{
+                    width: 112px;
+                    height: 38px;
+                    line-height: 38px;
+                    background: #000;
+                    font-size: 15px;
+                    color: #fff;
+                    clear: both;
+                    text-align: center;
+                    margin-left: 168px;
+                    border-radius: 5px;
+                    position: relative;
+                    padding: 3px 5px;
+                    overflow: hidden;
+                    .fileBtn{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        outline: none;
+                        background-color: transparent;
+                        filter:alpha(opacity=0);
+                        -moz-opacity:0;
+                        -khtml-opacity: 0;
+                        opacity: 0;
+                    }
+                }   
+            }
+        }
+        .msg{
+            width: 100%;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            color: red;
+            overflow: hidden;
+        }
+        .submit{
+            width: 100%;
+            height: 53px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            .submitBtn{
+                width: 166px;
+                height: 50px;
+                line-height: 50px;
+                background: #000;
+                border-radius: 5px;
+                font-size: 17px;
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+    }
+    .twoStep{
+        .title{
+            width: 100%;
+            height: 146px;
+            line-height: 146px;
+            font-size: 38px;
+            color: #000000;
+            text-align: center;
+            // letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .cover{
+            width: 396px;
+            float: left;
+            .coverImg{
+                width: 282px;
+                height: 282px;
+                border-radius: 5px;
+                background: #000;
+                margin: 58px 57px 38px;
+                img{
+                    width: 100%;
+                }
+            }
+            .upcover{
+                width: 166px;
+                height: 50px;
+                line-height: 50px;
+                background: #000;
+                font-size: 17px;
+                color: #fff;
+                text-align: center;
+                margin-left: 117px;
+                border-radius: 5px;
+            }
+        }
+        .works{
+            width: 508px;
+            float: right;
+            .name{
+                width: 100%;
+                height:auto;
+                margin-bottom: 22px;
+                position: relative;
+                overflow: hidden;
+                .mp3{
+                    position: absolute;
+                    width: 320px;
+                    top: 0;
+                    left: 120px;
+                    outline: none;
+                    background-color: transparent;
+                    filter:alpha(opacity=0);
+                    -moz-opacity:0;
+                    -khtml-opacity: 0;
+                    opacity: 0;
+                }
+                .show{
+                    display: inline-block;
+                    width: 320px;
+                    height: 42px;
+                    line-height: 42px;
+                    border: 1px solid #cccccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                    text-indent: 10px;
+                }
+                .uploadFile{
+                    width: 82px;
+                    height: 42px;
+                    background: #ccc;
+                    line-height: 40px;
+                    text-align: center;
+                    border: 1px solid #cccccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                    // color: #fff;
+                    float: right;
+                    margin-right: 68px;
+                    cursor: pointer;
+                }
+                label{
+                    display: inline-block;
+                    width: 115px;
+                    text-align: right;
+                    font-size: 18px;
+                    vertical-align: top;
+                    padding-top: 8px;
+                    span{
+                        color: red;
+                        font-weight: bold;
+                    }
+                }
+                input{
+                    width: 320px;
+                    height: 42px;
+                    line-height: 42px;
+                    border: 1px solid #cccccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    outline: none;
+                    font-size: 16px;
+                    text-indent: 10px;
+                }
+                select{
+                    width: 98px;
+                    height: 42px;
+                    line-height: 42px;
+                    border: 1px solid #cccccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    outline: none;
+                    font-size: 16px;
+                    text-indent: 14px;
+                    option{
+                        padding: 5px;
+                    }
+                }
+                textarea{
+                    width: 320px;
+                    border: 1px solid #cccccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                    padding: 12px 15px;
+                    outline: none;
+                }
+            }
+            .progress{
+                width: 320px;
+                height: 10px;
+                background: #ccc;
+                border-radius: 6px;
+                margin: -18px 0 16px 120px;
+                position: relative;
+                .nowpro{
+                    height: 10px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    border-radius: 6px;
+                    background: green;
+                }
+            }
+            .tip{
+                width: 100%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                font-size: 14px;
+                color: #9f9f9f;
+            }
+            .msg{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+                color: red;
+                overflow: hidden;
+            }
+            .submit{
+                width: 100%;
+                height: 52px;
+                text-align: center;
+                position: relative;
+                cursor: pointer;
+                .uploadBtn{
+                    width: 166px;
+                    height: 50px;
+                    line-height: 50px;
+                    background: #000;
+                    border-radius: 5px;
+                    font-size: 18px;
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+    }
+}
+.musicanList{
+    width: 300px;
+    height: 728px;
+    background: #fff;
+    position: fixed;
+    top: 50%;
+    transform: translate(-108%,-50%);
+    border-radius: 6px;
+    box-shadow:0px 0px  10px 2px #aaa;
+    .title{
+        width: 100%;
+        height: 146px;
+        line-height: 146px;
+        font-size: 38px;
+        color: #000000;
+        text-align: center;
+        // letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+    .musicanName{
+        width: 100%;
+        height: 570px;
+        overflow: auto;
+        font-size: 16px;
+        .nameCon{
+            width: 46%;
+            float: left;
+            margin-left: 6px;
+            margin-bottom: 10px;
+            input{
+                width: 20%;
+            }
+        }
+    }
+}
+.tipsbox{
+    width: 904px;
+    height: 728px;
+    background: #585858;
+    // opacity: 0.8;
+    border-radius: 6px; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    .statement{
+        width: 710px;
+        height: 574px;
+        background: #fff;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        .title{
+            width: 100%;
+            height: 126px;
+            line-height: 126px;
+            text-align: center;
+            font-size: 32px;
+        }
+        .title_con{
+            width: 586px;
+            height: 344px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            overflow: auto;
+            padding: 15px;
+        }
+        .reverse{
+            width: 166px;
+            height: 50px;
+            line-height: 50px;
+            background: #ccc;
+            margin: 28px auto;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+}
+.loading{
+    width: 160px;
+    height: 160px;
+    background: #585858;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 999999;
+    opacity: 0.8;
+    .true{
+        width: 46px;
+        display: block;
+        margin: 44px auto 25px;
+    }
+    p{
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+    }
+}
+.user{
+    width: 194px;
+    height: 40px;
+    position: fixed;
+    top: 17px;
+    right: 0;
+    font-size: 14px;
+    text-align: center;
+    // justify-content:center;//子元素水平居中
+    align-items:center;//子元素垂直居中
+    display:-webkit-flex;
+    .touxiang{
+        width: 40px;
+        height: 40px;
+        float: left;
+        cursor: pointer;
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+    .nickname{
+        padding: 0 12px;
+        height: 40px;
+        line-height: 40px;
+        float: left;
+    }
+    .logout{
+        width: 52px;
+        height: 14px;
+        line-height: 14px;
+        border-left: 1px solid #000;
+        float: left;
+        cursor: pointer;
+    }
+}
+
+.footer{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+}

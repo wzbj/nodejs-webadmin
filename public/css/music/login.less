@@ -1,0 +1,106 @@
+// out: login.css, compress:true, sourceMap:false
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: url(../../../public/img/jmqn.jpg) no-repeat;
+}
+.login{
+    width: 540px;
+    height: 420px;
+    background:#fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    h1{
+        width: 100%;
+        height: 126px;
+        line-height: 126px;
+        font-size: 30px;
+        color: #000000;
+        text-align: center;
+    }
+    input{
+        border: 1px solid #e3e3e3;
+        border-radius: 5px;
+        box-sizing: border-box;
+        text-indent: 14px;
+        outline: none;
+        font-size: 18px;
+        color: #000;
+    }
+    input::-webkit-input-placeholder {
+        color: #878787;
+    }
+    .name{
+        width: 100%;
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        margin-bottom: 16px;
+        .pre{
+            width: 48px;
+            height: 42px;
+        }
+        .phone{
+            width: 348px;
+            height: 42px;
+        }
+        
+    }
+    .password{
+        width: 100%;
+        height: 42px;
+        text-align: center;
+        margin-bottom: 16px;
+        .word{
+            width: 400px;
+            height: 42px;
+        }
+    }
+    .msg{
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        color: red;
+    }
+    .submit{
+        width: 100%;
+        height: 52px;
+        text-align: center;
+        // margin-bottom: 36px;
+        position: relative;
+        cursor: pointer;
+        .submitBtn{
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            background: #000;
+            border-radius: 5px;
+            font-size: 17px;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+    .tip{
+        width: 100%;
+        height: 100px;
+        line-height: 98px;
+        text-align: center;
+        font-size: 14px;
+        color: #9f9f9f;
+        a{
+            text-decoration:none;
+            color: #202020;
+        }
+    }
+}
+

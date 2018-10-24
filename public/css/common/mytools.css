@@ -1,0 +1,617 @@
+﻿/*导航菜单固定*/
+/*.page-header .navbar-collapse{
+	position: fixed !important;
+}*/
+.duan{
+	width: 10% !important;
+}
+.duans{
+	width: 20% !important;
+}
+.duan2{
+	width: 2% !important;
+}
+.duan3{
+	width: 3% !important;
+}	
+.duan4{
+	width: 4% !important;
+}
+.duan5{
+	width: 5% !important;
+}
+.duan6{
+	width: 6% !important;
+}
+.duan7{
+	width: 7% !important;
+}
+.duan8{
+	width: 8% !important;
+}
+.duan9{
+	width: 9% !important;
+}
+.duan10{
+	width: 10% !important;
+}
+.duan11{
+	width: 11% !important;
+}
+.duan12{
+	width: 12% !important;
+}
+.duan13{
+	width: 13% !important;
+}
+.duan14{
+	width: 14% !important;
+}
+.duan15{
+	width: 15% !important;
+}
+.duan16{
+	width: 16% !important;
+}
+.duan17{
+	width: 17% !important;
+}
+.duan18{
+	width: 18% !important;
+}
+.duan19{
+	width: 19% !important;
+}
+.duan20{
+	width: 20% !important;
+}
+.duan25{
+	width: 25% !important;
+}
+.duan30{
+	width: 30% !important;
+}
+.duan40{
+	width: 40% !important;
+}
+.duan50{
+	width: 50% !important;
+}
+.duan70{
+	width: 70% !important;
+}
+.duan80{
+	width: 80%!important;
+}
+
+.red{
+	color: red;
+}
+
+/*弹出表格样式*/
+.lgdialog .row{
+	margin-left: 0;
+	margin-right: 0;
+}
+.lgdialog .row>div{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.lgdialog table{
+	width: 100% !important;
+}
+.lgdialog .dataTables_scrollHeadInner{
+	width: 100% !important;
+}
+.lgdialog table thead{
+	width: 100% !important;
+}
+/*页面的最小高度*/
+/*.portlet{
+	min-height: 580px!important;
+}*/
+
+/*设置全局字体*/
+
+body{
+	/*height: 2000px !important;*/
+	font-family: "Microsoft YaHei" ! important;
+}
+.page-content-col{
+	font-size:12px !important;
+}
+
+h1{
+    color:#32C5D2 !important;
+    }
+
+tr th,tr td{
+    vertical-align: middle !important;
+    text-align: center !important;
+    outline: none !important;
+    font-size:12px !important;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+tr td img{
+	margin: 0 auto !important;
+}
+#anchorto{
+	background-color: white !important;
+	border: none !important;
+}
+.anchorto{
+	background-color: white !important;
+	border: none !important;
+}
+
+/*表格下面空白距离*/
+.bordereds{
+	padding-bottom: 92px !important;
+}
+
+/*弹框样式*/
+/*.modal-body{
+	max-width: 800px;
+	overflow: scroll;
+}*/
+
+/*.form .form-bordered .form-group{
+	border-bottom: none !important;
+}*/
+
+.form .form-bordered .form-group>div,.form .form-bordered .form-group{
+	border: none !important;
+}
+
+/*表格刷新提示正在加载框位置固定页面中间*/
+#liveList_processing ,#playBackTable_processing,
+#hxUserListTable_processing,#forbidRecordTable_processing,#unForbidRecordTable_processing,#newAuditTable_processing,
+#liveList_processing,
+#dataTableShow_processing,
+#showTable_processing{
+	
+	position: fixed !important;
+	/*position: absolute !important;*/
+	top: 50% !important;
+	z-index: 9999 !important;
+}
+
+.form .form-body, .portlet-form .form-body{
+	padding: 20px !important;
+}
+
+
+
+.form-group .md-radio-inline {
+     margin:0 !important;
+}
+.form-group>div{
+	vertical-align: middle !important;
+	padding: 0 !important;
+	padding-left:10px !important;
+}
+
+.form-group{
+	margin-bottom: 0 !important;
+	vertical-align: middle !important;
+}
+.form-group>.md-radio{
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.form-group>label{
+	padding: 0 !important;
+	/*padding-top: 5px !important;*/
+	padding-right: 10px !important;
+}
+
+.form-group>div>textarea{
+	padding: 0 !important;
+	/*margin-top: 5px !important;*/
+	font-size: 12px !important;
+	margin-bottom: 5px;
+}
+.form-group>div>input{
+	padding: 0 !important;
+	/*/*margin-top: 5px !important;*/*/
+	font-size: 12px !important;
+	height: 23px !important;
+	vertical-align: middle !important;
+	width: 100% !important;
+	min-width: 206px !important;
+	text-indent: 1em !important;
+}
+.form-group>div>select{
+	padding: 0 !important;
+	font-size: 12px !important;
+	height: 23px !important;
+	vertical-align: middle !important;
+	width: 100%;
+	min-width: 206px !important;
+	text-indent: 0.8em !important;
+}
+
+.form-group>div>.input-large{
+	width: 100% !important;
+	min-width: 206px !important;
+}
+
+.form-group>div .input-small{
+	height:23px !important;
+	width: 100% !important;
+}
+.form-group>div>.fileinput{
+	width: 100% !important;
+}.form-group>div>.fileinput>.input-group{
+	width: 100% !important;
+}
+
+.form-group>div>input[type:'file']{
+	padding: 0 !important;
+	/*/*margin-top: 5px !important;*/*/
+	font-size: 12px !important;
+	height: 25px !important;
+	vertical-align: middle !important;
+}
+.form-group>div>label{
+	/*margin-top: 5px !important;*/
+}
+
+.form-group>div>input[type:checkbox]{
+	
+	margin-top: 0px !important;
+}
+.form-group>div>p{
+	vertical-align: middle !important;
+}
+
+
+.lgdialog .red,.smdialog .red,.singledialog .red{
+	color: red;
+}
+
+.form-control{
+	font-size: 12px !important;
+}
+
+
+
+.lgdialog,.smdialog,.singledialog{
+	
+	width: 100%;
+	height: 100%;
+	/*min-height: 100%;*/
+	background-color: rgba(0,0,0,.4);
+	position: absolute;
+	/*top: 20px;*/
+	top: 0;
+	left: 0;
+	position: fixed;
+	z-index: 99999;
+	display: none;
+}
+
+.modal-headers{
+	user-select: none; 
+}
+.lgdialogcontent{
+	position: relative;
+	/*width: 60%;*/
+	width: 45%;
+	/*height: 100%;*/
+	margin: auto auto;
+	/*margin-top: 50px;*/
+	background-color: white;
+	/*overflow: scroll;*/
+	/*max-height: 100%;*/
+	max-height: 70%;
+	overflow: scroll !important;
+	/*新增*/
+	margin-top: 100px;
+}
+
+.lgdialogcontentform{
+	overflow: initial !important;
+	width: 35%;
+}
+
+.lgdialogcontentformlg{
+	overflow: initial !important;
+	width: 45%;
+}
+
+@media screen and (max-width:1500px) {
+	.lgdialogcontent{
+		/*overflow: initial !important;*/
+		/*width: 80%;*/
+		width: 45%;
+	}
+	.lgdialogcontentform{
+		overflow: initial !important;
+		width: 40%;
+	}
+	
+	.lgdialogcontentformlg{
+	overflow: initial !important;
+	width: 55%;
+}
+}
+
+.lgdialogcontent .dialogclose{
+	display: inline-block;
+	float: right;
+	padding: 0 !important;
+	/*background-image: url(../../img/common/remove-icon-small.png);*/
+	background-repeat: no-repeat;
+
+}
+.smdialogcontent{
+	width: 30%;
+	/*height: 300px;*/
+	margin: 0 auto;
+	margin-top: 25% !important;
+	background-color: white;
+	transform: translateY(-50%) !important;
+}
+.smdialogcontent .dialogclose{
+	display: inline-block;
+	float: right;
+	padding: 0 !important;
+	/*background-image: url(../../img/common/remove-icon-small.png);*/
+	background-repeat: no-repeat;
+
+}
+
+.smcontent{
+	/*padding: 10px;*/
+	font-size:15px;
+	text-align: center;
+}
+.lgcontent{
+	
+}
+.modal-footer{
+	text-align: center;
+}
+
+
+/*操作组件样式开始*/
+.controlselect{
+	display: block !important;
+	color: #4e6a81;
+	position: relative !important;
+}
+.controlselect span{
+	display: inline-block;
+	color: #2a6496;
+	padding-right: 5px;
+}
+.controlselect i{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url(../../img/common/vh_opration.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.selectmap{
+	display: none;
+	margin: 0 auto;
+	padding: 0;
+	position: absolute;
+	top: 20px;
+	right: 0;
+	z-index: 999;
+	border: solid 1px #CCCCCC;
+	background-color: #FFFFFF;
+	box-shadow: 3px 3px 3px #e7e6e6;
+}
+.selectmap div{
+	/*display: block !important;*/
+	position: relative;
+	z-index: 99000;
+	word-break:break-word;
+	height: 30px;
+	line-height: 30px;
+	text-align:left;
+	color: #333333;
+	text-decoration: none;
+	min-width:130px;
+	padding:0 15px;
+}
+.selectmap div:hover{
+	background-color: #F5F5F5;
+	font-weight: bold;
+}
+
+
+
+/*去除操作按钮产生滚动条*/
+.dataTables_scrollBody{
+	overflow: initial !important;
+}
+.mainportlet-body{
+	padding-bottom: 100px;
+}
+/*操作组件样式结束*/
+
+/*单选按钮开始*/
+.md-radio label>.box{
+    height: 15px!important;
+    width: 15px!important;
+    border-radius: 50%!important;
+    -moz-border-radius: 50%!important;
+    -webkit-border-radius: 50%!important;
+}
+
+.md-radio label>.check {
+    top: 4px!important;
+    left: 4px!important;
+    width: 7px!important;
+    height: 7px!important;
+}
+
+.md-radio label>span.inc {
+    background: #fff;
+    left: -5px;
+    top: -5px;
+    height: 25px;
+    width: 25px;
+}
+
+.pr-minw{
+	min-width:80px !important;
+	text-align: left;
+	padding-left: 3px;
+}
+.md-radio{
+	min-width:90px !important;
+	text-align: left;
+	padding-left: 3px;
+}
+/*单选按钮结束*/
+
+
+/*多选按钮开始*/
+
+.mt-checkbox>span, .mt-radio>span {
+    border: 1px solid transparent;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background: #E6E6E6;
+}
+
+.mt-checkbox>span:after {
+    left: 2px;
+    top: 1px;
+    width: 5px;
+    height: 8px;
+    border: solid #888;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.mt-checkbox{
+    display: inline-block;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 5px;
+    /*margin-bottom: 15px;*/
+    cursor: pointer;
+    font-size: 14px;
+    webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+/*多选按钮结束*/
+
+/*文件上传*/
+.fileinput .uneditable-input {
+    padding: 0px 12px;
+    width: 100%!important;
+    font-size: 14px;
+    font-weight: 400;
+    height: 23px;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #c2cad8;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.fileinput .form-control {
+    display: inline-block;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0;
+    vertical-align: middle;
+    cursor: text;
+}
+
+.fileinput .input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #FFF!important;
+    border: 1px solid #FFF!important;
+    border-radius: 4px;
+    display:none !important;
+}
+.fileinput .input-group-addon,.fileinput .input-group-btn {
+    width: 20%;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.form-control{
+	line-height:1.82857 !important;
+}
+
+
+/*去掉上传文件默认margin-bottom*/
+.fileinput{
+	margin-bottom: 0!important;
+}
+
+/*去掉选择时间框的margin-top*/
+.form-horizontal .form-group .input-sm {
+	margin-top: 0!important;
+}
+
+
+
+
+
+/*表格内图片放大开始*/
+.bigimgdialog{
+	width: 100%;
+	height: 100%;
+	/*min-height: 100%;*/
+	background-color: rgba(0,0,0,.4);
+	position: absolute;
+	top: 0px;
+	left: 0;
+	position: fixed;
+	z-index: 99999;
+	display: none;
+}
+.bigimgdialogcontent .dialogclose img{
+	width: 15px;
+}
+.imgcontent img{
+	width: 100%;
+}
+.bigimgdialogcontent{
+	width: 25%;
+	margin: 0 auto;
+	margin-top:25% !important;
+	transform: translateY(-50%) !important;
+}
+/*表格内图片放大结束*/
+
+/*.control{
+	width:200px!important;
+}*/
+
+/*控制刚刷新页面的时候表头的宽度*/
+
+/*多选操作滚动后固定*/
+.fixeds{
+    position: fixed;
+    top: 300px;
+    left: -500px;
+    z-index: 999;
+}

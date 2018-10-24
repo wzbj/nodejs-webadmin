@@ -1,0 +1,14 @@
+.lgdialog,.smdialog,.singledialog{
+	width: 100%;
+}
+
+#cleardialog .lgdialogcontent{
+	width:40%!important;
+}
+.textlabel{
+	font-size: 15px;
+}
+
+.cleardialog{
+	display: none;
+}

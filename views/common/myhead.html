@@ -1,0 +1,423 @@
+
+                <nav class="navbar mega-menu" role="navigation">
+                    <div class="container-fluid">
+                        <div class="clearfix navbar-fixed-top">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="toggle-icon">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </span>
+                            </button>
+                            <!-- End Toggle Button -->
+                            <!-- BEGIN LOGO -->
+                            <a id="index" class="page-logo" href="index.html" style="width: 50px;">
+                                <img src="/public/img/common/logo.png" alt="Logo" style="width: 50px;"> </a>
+                            <!-- END LOGO -->
+                            <!-- BEGIN SEARCH -->
+                            <!--<form class="search" action="http://keenthemes.com/preview/metronic/theme/admin_5/extra_search.html" method="GET">
+                                <input type="name" class="form-control" name="query" placeholder="Search...">
+                                <a href="javascript:;" class="btn submit md-skip">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>-->
+                            <!-- END SEARCH -->
+                            <!-- BEGIN TOPBAR ACTIONS -->
+                            <div class="topbar-actions">
+                               
+                                <!-- BEGIN USER PROFILE -->
+                                <div class="btn-group-img btn-group">
+                                	<a href="/account/index" target="_blank"><button type="button" id="lgOld">老后台</button></a>
+                                	<button type="button" class="" id="lgOut">退出登录</button>
+                                    <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="display: none;">
+                                        <!-- <span>Hi, Marcus</span> -->
+                                        <!--<img src="avatar1.jpg"" alt=""> </button>-->
+                                    <ul class="dropdown-menu-v2" role="menu">
+                                        <li>
+                                            <a href="page_user_profile_1.html">
+                                                <i class="icon-user"></i> My Profile
+                                                <span class="badge badge-danger">1</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_calendar.html">
+                                                <i class="icon-calendar"></i> My Calendar </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_inbox.html">
+                                                <i class="icon-envelope-open"></i> My Inbox
+                                                <span class="badge badge-danger"> 3 </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="app_todo_2.html">
+                                                <i class="icon-rocket"></i> My Tasks
+                                                <span class="badge badge-success"> 7 </span>
+                                            </a>
+                                        </li>
+                                        <li class="divider"> </li>
+                                        <li>
+                                            <a href="page_user_lock_1.html">
+                                                <i class="icon-lock"></i> Lock Screen </a>
+                                        </li>
+                                        <li>
+                                            <a href="page_user_login_1.html">
+                                                <i class="icon-key"></i> Log Out </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- END USER PROFILE -->
+                                <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                                <!--<button type="button" class="quick-sidebar-toggler md-skip" data-toggle="collapse">
+                                    <span class="sr-only">Toggle Quick Sidebar</span>
+                                    <i class="icon-logout"></i>
+                                </button>-->
+                                <!-- END QUICK SIDEBAR TOGGLER -->
+                            </div>
+                            <!-- END TOPBAR ACTIONS -->
+                            <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+	                            <ul class="nav navbar-nav">
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabledactive dropdown1 open selected">
+	                                    <a href="#/userPhoto" class="text-uppercase">
+	                                        <i class="icon-home"></i>系统首页</a>
+	                                    <ul id="homePage" class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                       <!--  <li class="active">
+	                                            <a href="#/home" >
+	                                                <i class="icon-bar-chart"></i>基本数据信息</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/userMsg">
+	                                                <i class="icon-graph"></i>新老用户信息</a>
+	                                        </li> -->
+	                                        <li class="active">
+	                                            <a href="#/userPhoto">
+	                                                <i class="icon-graph"></i>用户画像</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown2">
+	                                    <a href="#/ordinary" class="text-uppercase">
+	                                        <i class="icon-puzzle"></i>用户管理</a>
+	                                    <ul id="userMagage" class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/ordinary">
+	                                                <i class="icon-diamond"></i>全部用户</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/highUser">
+	                                                <i class="icon-diamond"></i>优质用户</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/userScore">
+	                                                <i class="icon-diamond"></i>用户评分</a>
+	                                        </li>
+	                                        <!-- <li>
+	                                            <a href="#/suspicion">
+	                                                <i class="icon-diamond"></i>可疑用户</a>
+	                                        </li> -->
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown3">
+	                                    <a href="#/waitHandleUser" class="text-uppercase">
+	                                        <i class="icon-briefcase"></i>待处理用户</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li>
+	                                            <a href="#/waitHandleUser">待处理用户</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown4">
+	                                    <a href="#/waitComplain" class="text-uppercase">
+	                                        <i class="icon-layers"></i>投诉管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#/waitComplain">
+	                                                <i class="icon-docs"></i>待投诉管理</a>
+	                                        </li>
+	                                        <li class="dropdown">
+	                                            <a href="#/complainManage"><i class="icon-docs"></i>投诉管理</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <!--提现管理-->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown5">
+	                                    <a href="#/administratorPush" class="text-uppercase">
+	                                        <i class="icon-layers"></i>管理员</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/administratorPush">
+	                                                <i class="icon-docs"></i>管理员推送</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/addTag">
+	                                                <i class="icon-docs"></i>添加ugc标签</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/adduserTag">
+	                                                <i class="icon-docs"></i>添加用户标签</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/addCommentuser">
+	                                                <i class="icon-docs"></i>添加机器人</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/addComments">
+	                                                <i class="icon-docs"></i>添加评论</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/cooperList">
+	                                                <i class="icon-docs"></i>合作商列表</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/queryCode">
+	                                                <i class="icon-docs"></i>查询验证码</a>
+											</li>
+											<li>
+	                                            <a href="#/addReason">
+	                                                <i class="icon-docs"></i>添加沉底原因</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/randomChat">
+	                                                <i class="icon-docs"></i>匿名弹幕</a>
+	                                        </li>
+	                                        <!-- <li>
+	                                            <a href="#/registerAccount">
+	                                                <i class="icon-docs"></i>注册账号</a>
+	                                        </li> -->
+	                                    </ul>
+	                                </li>
+	                                
+	                                <!--举报管理-->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown6">
+	                                    <a href="#/barrageManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>弹幕管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#/barrageManage"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                
+	                                
+	                                <!--文章管理-->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown7">
+	                                    <a href="#/purposeManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>目的管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#purposeManage"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <!--数据统计-->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown8">
+	                                    <a href="#/advertManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>广告管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#/advertManage"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li>                                
+	                                <!--活动管理-->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown9">
+	                                    <a href="#/liubo" class="text-uppercase">
+	                                        <i class="icon-layers"></i>刘波</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/liubo">刘波回复</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/liuboPush">刘波推送</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                
+	                                <!--系统配置-->
+	                               <!--  <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown10">
+	                                    <a href="#" class="text-uppercase">
+	                                        <i class="icon-layers"></i>违规/敏感词条</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li> -->
+	                                
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown11">
+	                                    <a href="#/androidMsg" class="text-uppercase">
+	                                        <i class="icon-layers"></i>安卓版本信息</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#/androidMsg"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <!-- <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown12">
+	                                    <a href="#" class="text-uppercase">
+	                                        <i class="icon-layers"></i>Noah's Ark</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li> -->
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown13">
+	                                    <a href="#/adminManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>管理员管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                          <li class="dropdown">
+	                                            <a href="#/adminManage">
+	                                                <i class="icon-basket"></i>管理员</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown14">
+	                                    <a href="#/community" class="text-uppercase">
+	                                        <i class="icon-layers"></i>社区轮播</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="dropdown">
+	                                            <a href="#/community"></a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown15">
+	                                    <a href="#/ugcManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>UGC管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/ugcManage">
+	                                                <i class="icon-basket"></i>UGC管理</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/highUgc">
+	                                                <i class="icon-diamond"></i>UGC分类</a>
+											</li>
+											<li>
+	                                            <a href="#/qiNiuUnited">
+	                                                <i class="icon-diamond"></i>短视频审核</a>
+											</li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown16">
+	                                    <a href="#/commentManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>评论管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/commentManage">评论管理</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/commentReply">
+	                                                <i class="icon-diamond"></i>评论回复</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown20">
+	                                    <a href="#/musicExamin" class="text-uppercase">
+	                                        <i class="icon-layers"></i>音频管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+												<a href="#/musicExamin">
+													<i class="icon-diamond"></i>音乐审核</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/musicianExamin">
+	                                                <i class="icon-diamond"></i>音乐人审核</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/musicBanner">
+	                                                <i class="icon-diamond"></i>音乐轮播</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown17">
+	                                    <a href="#/reportManage" class="text-uppercase">
+	                                        <i class="icon-layers"></i>举报管理</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <!-- <li class="dropdown">
+	                                            <a href="#/reportManage"></a>
+	                                        </li> -->
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown18">
+	                                    <a href="#/shumeiUser" class="text-uppercase">
+	                                        <i class="icon-layers"></i>数美问题</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/shumeiUser">
+	                                                <i class="icon-basket"></i>数美问题用户</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/shumeiOs">
+	                                                <i class="icon-diamond"></i>数美问题设备</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+                 					<li class="dropdown dropdown-fw dropdown-fw-disabled dropdown19">
+	                                    <a href="#/clientDtl" class="text-uppercase">
+	                                        <i class="icon-layers"></i>客服考勤</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/clientDtl">
+	                                                <i class="icon-basket"></i>工作详情</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/clientNeed">
+	                                                <i class="icon-diamond"></i>需求表</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/staffTest">
+	                                                <i class="icon-diamond"></i>员工质检管理</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/tagsTest">
+	                                                <i class="icon-diamond"></i>标签质检管理</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                                <li class="dropdown dropdown-fw dropdown-fw-disabled dropdown21">
+	                                    <a href="#/ugcChar" class="text-uppercase">
+	                                        <i class="icon-layers"></i>数据统计</a>
+	                                    <ul class="dropdown-menu dropdown-menu-fw dropdown-menucolor">
+	                                        <li class="active">
+	                                            <a href="#/ugcChar">
+	                                                <i class="icon-basket"></i>数据统计</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/userAddChar">
+	                                                <i class="icon-basket"></i>用户新增统计</a>
+	                                        </li>
+	                                        <li>
+	                                            <a href="#/sinkChar">
+	                                                <i class="icon-basket"></i>沉底原因统计</a>
+	                                        </li>
+	                                    </ul>
+	                                </li>
+	                            </ul>
+	                        </div>
+                        </div>
+                        <!-- BEGIN HEADER MENU -->
+                        
+                        <!-- END HEADER MENU -->
+                    </div>
+                    <!--/container-->
+                </nav>
+
+                <!--信息提示弹窗弹窗-->
+				<div class="smdialog numCgdialog" style="display: none;z-index: 100007;">
+					<div class="portlet-body form smdialogcontent">
+				        <div class="modal-header modal-headers">
+				        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>信息提示</h4>
+				        </div>
+				        <div class="modal-body">
+				       		<div class="smcontent">
+				       			<p style="color: red;"></p>
+				       		</div>
+				        </div>
+				     </div>
+				</div>
+
+                
+            

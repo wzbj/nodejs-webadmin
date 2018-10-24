@@ -1,0 +1,832 @@
+<!--时间插件开始-->
+<link href="/public/css/common/daterangepicker-bs3.css"  rel="stylesheet"/>
+<link href="/public/css/common/daterangepicker-1.3.7.css" rel="stylesheet" />
+<link href="/public/css/common/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!--时间插件结束-->
+<!--弹窗轮播开始-->
+<link rel="stylesheet" type="text/css" href="/public/css/fancybox/jquery.fancybox.css?v=2.1.2" media="screen" />
+<link rel="stylesheet" type="text/css" href="/public/css/fancybox/jquery.fancybox-buttons.css?v=1.0.5" />
+<link rel="stylesheet" type="text/css" href="/public/css/fancybox/jquery.fancybox-thumbs.css?v=1.0.7" />
+<!-- 分页插件 -->
+<link href="/public/css/common/page.css" rel="stylesheet">
+<link href="/public/css/common/pager.css" rel="stylesheet">
+<link href="/public/css/common/mytools.css" rel="stylesheet">
+<style type="text/css">
+	.lgdialogcontentform{
+		margin: 240px auto;
+	}
+	.shieldlog .md-radio{
+		display: block;
+	}
+	td a{
+		float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+	}
+	td a img{
+		width: 60px;
+
+	}
+	td a img:hover{
+		z-index: 99;
+	}
+
+	#zz{
+          display: none;
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0,.6);
+          z-index: 9999;
+      }
+      #zz video{
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+      }
+	.pageTest{ width: 400px; height: 50px;margin: 0 auto; margin-top: 40px;display:block;}
+    .activP{
+        background-color: #337ab7!important;
+        color: #fff!important;
+    }
+    td p{
+    	margin: 0;
+    }
+    .hotStaue,.examineStatus{
+    	color: red;
+    }
+    .fixeds{
+        position: fixed;
+        top: 600px;
+        left: -500px;
+        z-index: 999;
+    }
+    #idList .md-radio{
+    	/*min-width: 50px!important;*/
+    	float: left;
+    }
+</style>
+<div class="breadcrumbs">
+    <h1><i class="icon-users" style="padding-right: 10px;"></i>UGC管理</h1>
+    <!--<ol class="breadcrumb">
+        <li>投诉管理</li>
+        <li class="active">待投诉管理</li>
+    </ol>-->
+</div>
+
+<div class="note note-success row">
+    总条数：<span id="allUser"></span>&nbsp;&nbsp;&nbsp;&nbsp;每页展示：<span id="pageNum">50</span>个，一共有<span id="allPage">100</span>页，当前为第<span id="currentPage">1</span>页
+</div>
+
+<div class="page-content-row">
+    <!-- BEGIN PAGE SIDEBAR -->
+   
+    <!-- END PAGE SIDEBAR -->
+    <div class="page-content-col" style="padding-left:0;">
+        <!-- BEGIN PAGE BASE CONTENT -->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered bordereds">
+                    <div class="portlet-title">
+                        <div class="caption" style="color: #36C6D3">
+                        <i class="icon-notebook" style="color: #36C6D3"></i>UGC管理</div>
+                        <div class="tools"> 
+
+                        </div>
+                    </div>
+                    
+                    <div class="portlet-title">
+                    	<div class="row" style="padding-bottom: 10px;">
+                			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                				<input type="text" class="form-control input-sm input-small input-inline"  name="" id="sxh1" value="" placeholder="昵称模糊搜索"/></label>
+                			</div>
+                			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                				<input type="text" class="form-control input-sm input-small input-inline"  name="" id="sxh2" value="" placeholder="uid搜索"/></label>
+                			</div>
+                			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                				<input type="text" style="width: 40px!important;padding: 0;text-align: center;" class="form-control input-sm input-small input-inline"  name="" id="areacode" value="86" placeholder="区号"/></label>
+                				<input type="text" class="form-control input-sm input-small input-inline"  name="" id="sxh3" value="" placeholder="手机号搜索"/></label>
+                			</div>
+                			<!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                				<input type="search" class="form-control input-sm input-small input-inline"  name="" id="sxh4" value="" placeholder="员工账号搜索"/></label>
+                			</div> -->
+                			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                				<input type="text" class="form-control input-sm input-small input-inline"  name="" id="sxh5" value="" placeholder="uuid搜索"/></label>
+                			</div>
+                		</div>
+                    </div>
+                    <div class="portlet-title">
+                    	<div class="row">
+                    		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+			                	<!--时间选择-->
+			                	<div class="container-fluid" style="display: inline-block;">
+									<div class="row-fluid">
+										<div class="span4">
+											<div class="control-group">
+												<div class="controls">
+													<div id="reportrange6" class="pull-left dateRange" style="width:260px">
+														<i class="glyphicon glyphicon-calendar fa fa-calendar" style="margin-right: 15px;"></i>
+														<span id="searchDateRange"></span>
+														<b class="caret"></b>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<button class="btn reset" style="display: inline-block;margin-top: -20px;background: #98FB98;">置空时间</button>
+			                </div>
+			                <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12" style="text-align: right;">
+                				<button type="button" class="btn btn-info" id="search"><i class="icon-magnifier">&nbsp;</i>搜索</button> 
+                			</div>
+                    	</div>
+                    </div>
+                    <div class="portlet-title">
+                    	<div class="row">	
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+                            	优质筛选：
+                            	</span>
+                            	<div class="md-radio">
+	                                <input type="radio"  checked id="checkbox1_0" name="radio0" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox1_0">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox1_1" name="radio0" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox1_1">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>优质</label>
+	                            </div>
+                			</div>
+                        </div>			
+                		<div class="row">	
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+                            	性别筛选：
+                            	</span>
+                            	<div class="md-radio">
+	                                <input type="radio"  checked id="checkbox2_1" name="radio1" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_1">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_2" name="radio1" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_2">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>男</label>
+	                            </div>
+                            	<div class="md-radio">
+	                                <input type="radio" id="checkbox2_3" name="radio1" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_3">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>女</label>
+	                            </div>
+                			</div>
+                        </div>
+                    	<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	是否热门：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_4" name="radio2" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_4">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_5" name="radio2" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_5">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>是</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_6" name="radio2" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_6">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>否</label>
+	                            </div>
+                			</div>
+                		</div>
+                    	<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	平台筛选：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_7" name="radio3" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_7">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_8" name="radio3" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_8">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>Android</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_9" name="radio3" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_9">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>IOS</label>
+	                            </div>
+                			</div>
+                		</div>
+                		<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	号码筛选：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_10" name="radio4" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_10">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_11" name="radio4" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_11">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>单号</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_12" name="radio4" value="0" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_12">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>双号</label>
+	                            </div>
+                			</div>
+                		</div>
+                		<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	用户状态：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_13" name="radio5" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_13">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_14" name="radio5" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_14">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>已屏蔽</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_15" name="radio5" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_15">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>未屏蔽</label>
+	                            </div>
+                			</div>
+                		</div>
+                		<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	是否审核：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_16" name="radio6" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_16">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_17" name="radio6" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_17">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>已审核</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_18" name="radio6" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_18">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>未审核</label>
+	                            </div>
+                			</div>
+                		</div>
+                		<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	文章类型：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_40" name="radio10" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_40">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_41" name="radio10" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_41">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>文字文章</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_42" name="radio10" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_42">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>照片文章</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_43" name="radio10" value="3" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_43">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>视频文章</label>
+	                            </div>
+                			</div>
+                		</div>
+                    	<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	排序类型：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_19" name="radio7" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_19">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_20" name="radio7" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_20">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>发布时间</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_21" name="radio7" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_21">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>置顶顺序</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_22" name="radio7" value="4" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_22">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>热门顺序</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_23" name="radio7" value="3" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_23">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>点赞数</label>
+	                            </div>
+                			</div>
+                		</div>
+                		<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	状态筛选：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_24" name="radio8" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_24">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_25" name="radio8" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_25">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>正常内容</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_26" name="radio8" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_26">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>主人删除</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_27" name="radio8" value="4" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_27">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>鉴黄删除</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_28" name="radio8" value="3" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_28">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>管理员删除</label>
+	                            </div>
+                			</div>
+                		</div>
+                    	<div class="row">
+                			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 md-radio-inline">
+                				<span>
+	                            	违规筛选：
+	                            </span>
+	                            <div class="md-radio">
+	                                <input type="radio" checked id="checkbox2_29" name="radio9" value="" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_29">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>默认</label>
+	                            </div>
+                    			<div class="md-radio">
+	                                <input type="radio" id="checkbox2_30" name="radio9" value="1" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_30">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>色情</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_31" name="radio9" value="2" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_31">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>政治</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_32" name="radio9" value="3" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_32">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>暴力</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_33" name="radio9" value="4" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_33">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>广告</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_34" name="radio9" value="5" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_34">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>毒品</label>
+	                            </div>
+	                            <div class="md-radio">
+	                                <input type="radio" id="checkbox2_35" name="radio9" value="6" class="md-radiobtn selectRadio">
+	                                <label for="checkbox2_35">
+	                                    <span></span>
+	                                    <span class="check"></span>
+	                                    <span class="box"></span>其他</label>
+	                            </div>
+                			</div>
+                		</div>
+            		</div>
+            		<div class="portlet-title">
+                    	<div class="row">
+                    		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="operations" style="text-align: right;padding-bottom: 15px;color: #fff;">
+                                <button type="button" id="addthumbs" class="btn btn-warning addThumb" ><!--<i class="icon-plus">&nbsp;</i>-->批量加赞</button> 
+                                <button type="button" id="thumbs" class="btn add" style="background: #FF4040;"><!--<i class="icon-plus">&nbsp;</i>-->选中手工点赞</button> 
+                                <button type="button" id="shield" class="btn add" style="background: #FF4040;"><!--<i class="icon-plus">&nbsp;</i>-->选中屏蔽</button> 
+                                <button type="button" id="idopt" class="btn sorting" style="background: #458B00;"><!--<i class="icon-film">&nbsp;</i>-->选中通过</button> 
+                                <button type="button" id="returnZero" class="btn orbit" style="background: #436EEE;"><!--<i class="icon-share-alt ">&nbsp;</i>-->置顶归零</button> 
+                                
+                            </div>
+                    	</div>
+                    </div>
+                    <div class="portlet-title">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12" style="text-align: right;">
+                                <button type="button" id="refresh" class="btn btn-success add refresh">刷新</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                	<th class="all duan2">
+                                		<input type="checkbox" name="" id="all" value="" />
+                                	</th>
+                                	<th class="all duan4">ArtID</th>
+                                	<th class="all duan4">设备</th>
+                                    <th class="all duan3">UID</th> 
+                                    <th class="all duan6">昵称</th>
+                                    <th class="all duan7">手机号</th>
+                                    <th class="all duan4">性别</th>
+                                    <th class="all unsort duan16">视频/图片</th>
+                                    <th class="all duan10">文字内容</th>
+                                    <th class="all duan5">标签</th>
+                                    <th class="all duan8">发布时间</th>
+                                    <th class="all duan6">置顶顺序</th>
+                                    <th class="all duan3">点赞数</th>
+                                    <th class="all duan4">评论数</th>
+                                    <th class="all duan4">手工点赞数</th>
+                                    <th class="all duan6">状态</th>
+                                    <th class="all unsort duan8">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                <tr id="loading">
+                                    <td colspan="17"><img style="width: 36px" src="/public/img/common/loading.gif" alt=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <div class="pageTest"></div> -->
+						<div>
+	                        <ul class="pagination" id="page1">
+	                        </ul>
+	                        <div class="pageJump">
+	                            <span>跳转到</span>
+	                            <input type="text"/ style="width: 50px!important;">
+	                            <span>页</span>
+	                            <button type="button" class="button">确定</button>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-lg-12 col-md-12" style="text-align: right;">
+	                            <button type="button" id="refresh" class="btn btn-success add refresh">刷新</button>
+	                        </div>
+	                    </div>
+
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+          
+        </div>
+        <!-- END PAGE BASE CONTENT -->
+    </div>
+</div>
+
+
+<!--屏蔽弹窗-->
+<div class="lgdialog tagslog" style="display: none;">
+	<div class="portlet-body form lgdialogcontent">
+        <div class="modal-header modal-headers">
+        	<div class="dialogclose dialogcloses">
+        		<img src="/public/img/common/remove-icon-small.png"/>
+        	</div>
+        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>标签选择</h4>
+        </div>
+        <div class="modal-body">
+       	<!--内容开始-->
+       		<div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal ">
+                     <div class="form-body">
+                        <div id="tagList">
+	                        <!-- <div class="form-group">
+	                            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">风格:</label>
+	                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+	                                <label class="mt-checkbox">
+	                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Checkbox 1
+	                                    <span></span>
+	                                </label>
+	                            </div>
+	                        </div>
+	                        <div class="form-group">
+	                            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">风格:</label>
+	                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+	                                <label class="mt-checkbox">
+	                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Checkbox 1
+	                                    <span></span>
+	                                </label>
+	                            </div>
+	                        </div> -->
+	                    </div>
+
+                    	<div class="form-group">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;">
+                            	<button id="checkBtn" type="button" class="btn green">
+                                    <i class="fa fa-check"></i> 确定</button>
+                                <button type="button" class="btn default lgdialogcloses">
+                                	<i class="fa fa-times"></i>取消</button>
+                            </div>
+                    	</div>
+                	</div>
+                </form>
+                <!-- END FORM-->
+            </div>
+       	<!--内容结束-->
+        </div>
+     </div>
+</div>
+<!-- video弹窗 -->
+<div id="zz">
+    <video id="big" src="" controls="" width="600px" height="600px"></video>
+ </div>
+<!-- 批量加赞弹窗 -->
+<div class="smdialog thumbdialogs" style="display: none;">
+	<div class="portlet-body form smdialogcontent">
+        <div class="modal-header modal-headers">
+        	<div class="dialogclose dialogcloses">
+        		<img src="/public/img/common/remove-icon-small.png"/>
+        	</div>
+        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i><span class="thumbTexts">批量加赞</span><span style="color: red;font-size: 12px;">(请输入加赞数的范围)</span></h4>
+        </div>
+        <div class="modal-body">
+       	<!--内容开始-->
+       		<div class="smcontent">
+       			<!--<p>确定删除<span class="red">道具目名称(8888)</span>道具吗？</p>-->
+       			<!-- <textarea id="remarkTxt" name="" rows="2" cols="" class="form-control"></textarea> -->
+       			<input style="margin-top: 10px;width: 45%;display: inline-block;" value="0" class="form-control" type="text" id="minthumbNum" placeholder="请输入最小点赞数">
+       			<input style="margin-top: 10px;width: 45%;display: inline-block;" value="500" class="form-control" type="text" id="maxthumbNum" placeholder="请输入最大点赞数">
+                <span class="help-block thumbMsgs" style="color:red"></span>
+       		</div>
+       	<!--内容结束-->
+        </div>
+        <div class="modal-footer">
+        	<button class="btn default smdialogcloses">取消</button>
+        	<button id="thumbBtns" class="btn green">确定</button>
+        </div>
+     </div>
+</div>
+
+<!--选中点赞弹窗-->
+<div class="smdialog thumbdialog" style="display: none;">
+	<div class="portlet-body form smdialogcontent">
+        <div class="modal-header modal-headers">
+        	<div class="dialogclose dialogcloses">
+        		<img src="/public/img/common/remove-icon-small.png"/>
+        	</div>
+        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i><span class="thumbText">修改点赞数</span></h4>
+        </div>
+        <div class="modal-body">
+       	<!--内容开始-->
+       		<div class="smcontent">
+       			<!--<p>确定删除<span class="red">道具目名称(8888)</span>道具吗？</p>-->
+       			<!-- <textarea id="remarkTxt" name="" rows="2" cols="" class="form-control"></textarea> -->
+       			<input style="margin-top: 10px;" class="form-control" type="text" id="thumbNum" placeholder="请输入数字">
+                <span class="help-block thumbMsg" style="color:red"></span>
+       		</div>
+       	<!--内容结束-->
+        </div>
+        <div class="modal-footer">
+        	<button class="btn default smdialogcloses">取消</button>
+        	<button id="thumbBtn" class="btn green">确定</button>
+        </div>
+     </div>
+</div>
+
+<!--信息提示弹窗-->
+<div class="smdialog numCgdialog" style="display: none;">
+	<div class="portlet-body form smdialogcontent">
+        <div class="modal-header modal-headers">
+        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>信息提示</h4>
+        </div>
+        <div class="modal-body">
+       	<!--内容开始-->
+       		<div class="smcontent">
+       			<p style="color: red;"></p>
+       		</div>
+       	<!--内容结束-->
+        </div>
+     </div>
+</div>
+<!-- 评论弹窗 -->
+<div class="lgdialog robotdialog" style="display: none;">
+    <!-- portlet-body form lgdialogcontent lgdialogcontentform -->
+    <div class=" portlet-body form lgdialogcontent" style="width: 45%;">
+        <div class="modal-header modal-headers">
+            <div class="dialogclose dialogcloses">
+                <img src="/public/img/common/remove-icon-small.png"/>
+            </div>
+            <h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>选择评论</h4>
+        </div>
+        <div class="modal-body">
+        <!--内容开始-->
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal ">
+                     <div class="form-body">
+                        <div class="form-group" id="idList">
+                            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">评论类型:</label>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                               
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">选择性别:</label>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="md-radio" style="display: inline-block;">
+                                    <input type="radio" id="checkbox69_1" name="radio69" value="1" class="md-radiobtn">
+                                    <label for="checkbox69_1">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span>男</label>
+                                </div>
+                                <div class="md-radio" style="display: inline-block;">
+                                    <input type="radio" id="checkbox69_2" name="radio69" value="2" class="md-radiobtn">
+                                    <label for="checkbox69_2">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span>女</label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">评论内容:</label>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <!--<input name="personName" value="" class="form-control" type="text"/>-->
+                                <textarea class="form-control commentCont" name="" rows="3" cols="" placeholder=""></textarea>
+                                <span class="help-block commentMsg" style="color:red"></span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            	<button type="button" class="btn btn-info" id="randombtn">随机</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!--<label class="control-label col-lg-7 col-md-7 col-sm-7 col-xs-7">真实用户带入机器人配比:</label>-->
+                            <!-- <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4"></label> -->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align: center;margin-top: 10px;">
+                                <button type="button" class="btn green " id="robotBtn">
+                                    <i class="fa fa-check"></i> 确定</button>
+                                <button type="button" class="btn default lgdialogcloses">
+                                    <i class="fa fa-times"></i>取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        <!--内容结束-->
+        </div>
+     </div>
+</div>
+<div class="smdialog comCgdialog" style="display: none;">
+	<div class="portlet-body form smdialogcontent">
+        <div class="modal-header modal-headers">
+        	<div class="dialogclose dialogcloses">
+                <img src="/public/img/common/remove-icon-small.png"/>
+            </div>
+        	<h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>评论提示</h4>
+        </div>
+        <div class="modal-body" style="min-height: 60px;">
+       	<!--内容开始-->
+       		<div class="smcontent comentList">
+       			<!-- <p style="color: red;"></p> -->
+
+       		</div>
+       	<!--内容结束-->
+        </div>
+     </div>
+</div>
+    <!--表格开始-->
+        <!--弹窗轮播开始-->
+        <script type="text/javascript" src="/public/js/fancybox/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="/public/js/fancybox/jquery.mousewheel-3.0.6.pack.js"></script>
+        <script type="text/javascript" src="/public/js/fancybox/jquery.fancybox.js?v=2.1.3"></script>
+        <script type="text/javascript" src="/public/js/fancybox/jquery.fancybox-buttons.js?v=1.0.5"></script>
+        <script type="text/javascript" src="/public/js/fancybox/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        <script type="text/javascript" src="/public/js/fancybox/jquery.fancybox-media.js?v=1.0.5"></script>
+        <!--弹窗轮播结束-->
+    <!--表格结束-->
+    	<script src="/public/js/common/mytools.js" type="text/javascript"></script>
+    	  <!--时间插件开始-->
+		<script src="/public/js/common/moment.js" type="text/javascript"></script>
+		<script src="/public/js/common/daterangepicker-1.3.7.js" type="text/javascript"></script>
+		<script src="/public/js/common/mainTime.js" type="text/javascript"></script>
+		<!--时间插件结束-->
+        <!-- 分页插件 -->
+        <script src="/public/js/common/cookie.js"></script>
+        <script src="/public/js/common/page.js" type="text/javascript"></script>
+        <script src="/public/js/common/pager.js" type="text/javascript"></script>
+		<!-- <script src="/public/js/user/userCommon.js?t=<?=time()?>" type="text/javascript" charset="utf-8"></script>		 -->
+		<script src="/public/js/ugc/ugcCommon.js?t=<?=time()?>" type="text/javascript" charset="utf-8"></script>
+        <script src="/public/js/ugc/ugcManage.js?t=<?=time()?>" type="text/javascript" charset="utf-8"></script>

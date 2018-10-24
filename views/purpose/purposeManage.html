@@ -1,0 +1,296 @@
+
+<!-- 分页插件 -->
+<link href="/public/css/common/page.css" rel="stylesheet">
+<link href="/public/css/common/mytools.css" rel="stylesheet">
+<style>
+    .shieldlog .md-radio{
+        display: block!important;
+    }
+    .pageTest{ width: 400px; height: 50px;margin: 0 auto; margin-top: 40px;display:block;}
+    .activP{
+        background-color: #337ab7!important;
+        color: #fff!important;
+    }
+    .img div{
+        margin-top:5px;
+    }
+    .img .pic{
+        margin:0 auto;
+        width: 90%;
+    }
+    .img .pic img{
+        width: 100%;
+    }
+    .img p{
+        font-weight: 600;
+        margin:0;
+        text-align: center;
+    }
+    .content{
+        margin-top: 10px;
+    }
+    .content .name{
+        font-size: 24px;text-align: right;
+    }
+    button{
+        margin-right: 10px;
+        display: inline-block;
+    }
+    
+</style>
+<div class="breadcrumbs" style="margin-top: 120px;">
+    <h1><i class="icon-users" style="padding-right: 10px;"></i>目的管理</h1>
+   <!--  <ol class="breadcrumb">
+        <li>投诉管理</li>
+        <li class="active">待投诉管理</li>
+    </ol> -->
+</div>
+
+<div class="page-content-row">
+    <!-- BEGIN PAGE SIDEBAR -->
+   
+    <!-- END PAGE SIDEBAR -->
+    <div class="page-content-col" style="padding-left:0;">
+        <!-- BEGIN PAGE BASE CONTENT -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered bordereds">
+                    <div class="portlet-title">
+                        <div class="row" style="padding-bottom: 10px;">
+                           <input type="text" class="form-control input-sm input-large input-inline typeName" />
+                           <button class="btn btn-success addType">添加分类</button>
+                           <span class="typeMsg red"></span>
+                        </div>
+                    </div>
+                    <div class="portlet-body" id="contents">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 name">
+                                    名字
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <button class="btn btn-success addPurpose">增加目的</button>
+                                    <button class="btn btn-success typeManage">分类管理</button>
+                                    <button class="btn btn-info onShelf">上架</button>
+                                    <button class="btn btn-danger offShelf">下架</button>
+                                </div>       
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                    <div class="row img">
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <div class="pic">
+                                                <img src="http://jimu-intent-dev.bj.bcebos.com/92" alt="">
+                                            </div>
+                                            <p>球鞋爱好者</p>
+                                            <p>挣脱一切世俗...</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <div class="pic" style="width: 90%">
+                                                <img style="width: 100%" src="http://jimu-intent-dev.bj.bcebos.com/92" alt="">
+                                            </div>
+                                            <p>球鞋爱好者</p>
+                                            <p>挣脱一切世俗...</p>
+                                        </div>
+                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                            <div class="pic" style="width: 90%">
+                                                <img style="width: 100%" src="http://jimu-intent-dev.bj.bcebos.com/92" alt="">
+                                            </div>
+                                            <p>球鞋爱好者</p>
+                                            <p>挣脱一切世俗...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="content" style="margin-top: 10px;">
+                            <div class="row">
+                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="font-size: 24px;text-align: right;">
+                                    重视是
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <button class="btn btn-success">增加目的</button>
+                                    <button class="btn btn-success">分类管理</button>
+                                    <button class="btn btn-info">上架</button>
+                                    <button class="btn btn-danger">下架</button>
+                                </div>       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+          
+        </div>
+        <!-- END PAGE BASE CONTENT -->
+    </div>
+</div>
+
+<div class="lgdialog adddialog" style="display: none;">
+    <!-- portlet-body form lgdialogcontent lgdialogcontentform -->
+    <div class=" portlet-body form lgdialogcontent" style="width: 45%;">
+        <div class="modal-header modal-headers">
+            <div class="dialogclose dialogcloses">
+                <img src="/public/img/common/remove-icon-small.png"/>
+            </div>
+            <h4 class="modal-title font-green"><i class=" icon-volume-2" style="padding-right: 10px;"></i>增加目的</h4>
+        </div>
+        <div class="modal-body">
+        <!--内容开始-->
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal ">
+                     <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">目的:</label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <!-- <textarea class="form-control toUserMsg" name="" rows="3" cols=""></textarea> -->
+                                <input id="purposeVal" type="text" class="form-control" placeholder="输入目的">
+                                <span class="help-block" style="color:red"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">目的卡牌描述:</label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <!-- <textarea class="form-control toUserMsg" name="" rows="3" cols=""></textarea> -->
+                                <input id="purposeDes" type="text" class="form-control" placeholder="输入目的卡牌描述">
+                                <span class="help-block" style="color:red"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">选择目的图片:</label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <div class="fileinput fileinput-new" data-provides='fileinput'>
+                                    <div class="input-group input-large">
+                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger='fileinput'>
+                                            <span class="fileinput-filename">
+                                                <i class="fa fa-file"></i> 请选择文件     
+                                            </span>
+                                        </div>
+                                        <span class="input-group-addon btn default btn-file">
+                                            <input id="gameImg" class="form-control" type='file',  name='gameImg' onchange='previewImage(this,5);' >
+                                        </span>
+                                    </div>
+                                </div>   
+                                <span class="help-block" style="color:red"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4"></label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" id="preview5">
+                                <img src="" id="imghead5" width="200" height="200" style="display: none;" alt="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">选择互粉图片文件:</label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <div class="fileinput fileinput-new" data-provides='fileinput'>
+                                    <div class="input-group input-large">
+                                        <div class="form-control uneditable-input input-fixed input-medium" data-trigger='fileinput'>
+                                            <span class="fileinput-filename">
+                                                <i class="fa fa-file"></i> 请选择文件     
+                                            </span>
+                                        </div>
+                                        <span class="input-group-addon btn default btn-file">
+                                            <input id="gameImg1" class="form-control" type='file', name='gameImg' onchange='previewImage(this,6);' >
+                                        </span>
+                                    </div>
+                                </div>   
+                                <span class="help-block" style="color:red"> </span>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4"></label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" id="preview6">
+                                <img src="" id="imghead6" width="200" height="200" style="display: none;" alt="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <!--<label class="control-label col-lg-7 col-md-7 col-sm-7 col-xs-7">真实用户带入机器人配比:</label>-->
+                            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4"></label>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="text-align: center;">
+                                <button id="addBtn" type="button" class="btn green ">
+                                    <i class="fa fa-check"></i> 确定</button>
+                                <button type="button" class="btn default lgdialogcloses">
+                                    <i class="fa fa-times"></i>取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        <!--内容结束-->
+        </div>
+     </div>
+</div>
+
+  
+    <!--表格结束-->
+        <script src="/public/js/common/mytools.js" type="text/javascript"></script>
+        <script src="/public/js/common/bootstrap-fileinput.js" type="text/javascript"></script>
+        <!-- 分页插件 -->
+        <!-- <script src="/public/js/common/page.js" type="text/javascript"></script> -->
+        <!-- <script src="/public/js/user/userCommon.js?t=<?=time()?>" type="text/javascript" charset="utf-8"></script> -->
+        <script src="/public/js/purpose/purposeManage.js?t=<?=time()?>" type="text/javascript" charset="utf-8"></script>
+        <script>
+            function previewImage(file,imgNum)
+        {
+                var MAXWIDTH  = 200;
+                var MAXHEIGHT = 200;
+                var div = document.getElementById('preview'+imgNum);
+                if (file.files && file.files[0])
+                {
+                        div.innerHTML ='<img id=imghead'+imgNum+'>';
+                        var img = document.getElementById('imghead'+imgNum+'');
+                        img.onload = function(){
+                                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                                img.width  =  rect.width;
+                                img.height =  rect.height;
+                                img.style.marginTop = rect.top+'px';
+                                //- img.style.marginLeft = rect.left +'px';
+                        }
+                        var reader = new FileReader();
+                        reader.onload = function(evt){img.src = evt.target.result;}
+                        reader.readAsDataURL(file.files[0]);
+                }
+                else //
+                {
+                        var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+                        file.select();
+                        var src = document.selection.createRange().text;
+                        div.innerHTML = '<img id=imghead'+imgNum+'>';
+                        var img = document.getElementById('imghead2');
+                        img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+                        var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                        status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+                        div.innerHTML = "<div id=divhead"+imgNum+" style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+                }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+                var param = {top:0, left:0, width:width, height:height};
+                if( width>maxWidth || height>maxHeight )
+                {
+                        rateWidth = width / maxWidth;
+                        rateHeight = height / maxHeight;
+
+                        if( rateWidth > rateHeight )
+                        {
+                                param.width =  maxWidth;
+                                param.height = Math.round(height / rateWidth);
+                        }else
+                        {
+                                param.width = Math.round(width / rateHeight);
+                                param.height = maxHeight;
+                        }
+                }
+                param.left = Math.round((maxWidth - param.width) / 2);
+                param.top = Math.round((maxHeight - param.height) / 2);
+                return param;
+        }
+        </script>
+     
+   

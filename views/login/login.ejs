@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>登录</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="robots" content="noindex"> 
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="/css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/index/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/index/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- <link href="/css/index/bootstrap-switch.min.css" rel="stylesheet" type="text/css" /> -->
+        <link href="/css/index/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="/css/common/plugins.min.css" rel="stylesheet" type="text/css" />
+        
+        <link href="/css/login/login.min.css"  rel="stylesheet" type="text/css" />
+        
+        <link rel="shortcut icon" type="images/x-icon" href="/img/common/favicon.ico" /> 
+   </head>
+    <!-- END HEAD -->
+
+    <body class=" login">
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+            <!--
+            <a href="index.html" >
+                <img src="source/img/common/logo-big.png"  alt="" />
+            </a>-->
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+            <!-- BEGIN LOGIN FORM -->
+
+                <h3 class="form-title font-green">登 录</h3>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="account" id="name" value=""/> 
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" id="pwd" value=""/> 
+                </div>
+                <span id="msg" style="color: red;display: none;">*你的密码有误，请重新输入</span>
+                <div class="form-group">
+                    <div class="md-radio" style="display: inline-block;">
+                        <input type="radio" id="checkbox2_1" checked name="radio1" value="1" class="md-radiobtn">
+                        <label for="checkbox2_1">
+                            <span></span>
+                            <span class="check"></span>
+                            <span class="box"></span>老后台</label>
+                    </div>
+                    <div class="md-radio" style="display: inline-block;margin-left: 36px;">
+                        <input type="radio" id="checkbox2_2"  name="radio1" value="2" class="md-radiobtn">
+                        <label for="checkbox2_2">
+                            <span></span>
+                            <span class="check"></span>
+                            <span class="box"></span>新后台</label>
+                    </div>
+                </div>
+                <div class="form-actions" style="padding-top: 0;">
+                    <button type="button" id="login" class="btn green uppercase">登录</button>                    
+                </div>
+
+                <div class="create-account">
+                    <p>
+                        <!-- <a href="javascript:;" id="register-btn" class="uppercase">Create an account</a> -->
+                    </p>
+                </div>
+            </form>
+            <!-- END LOGIN FORM -->
+        </div>
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="/js/common/jquery.min.js"  type="text/javascript"></script>
+        <script src="/js/common/bootstrap.min.js"  type="text/javascript"></script>
+        <script src="/js/common/js.cookie.min.js"  type="text/javascript"></script>
+        <script type="text/javascript">
+            $('#login').on('click',function(){
+                var account = $('#name').val();
+                var password = $('#pwd').val();
+                var type = $("input[type='radio'][name='radio1']:checked").val();//q是老后台2是新后台
+                login(account,password,type);
+            })
+            // 输入框选中的时候提示消失
+            $('#name').focus(function(){
+                $("#msg").css("visibility","hidden");
+            });
+            $('#pwd').focus(function(){
+                $("#msg").css("visibility","hidden");
+            });
+
+            function login(account,password,type){
+                $.ajax({
+                    url:'http://custom.gmugmu.com/New/ILogin/login',
+                    type:"POST",
+                    dataType:"json",
+                    // async: false,
+                    data:{
+                        account:account,
+                        password:password
+                    },
+                    success:function(data){
+                        if(data.code == '200'){
+                            if(type == '1'){
+                                window.location.href='/account/index';
+                            }else if(type == '2'){
+                                // window.location.href='/ordinary';
+                            }
+                        }else{
+                            $('#msg').css('display','block');
+                        }
+                    }
+                })
+            }
+            $(function(){
+                function deleteCookie(name) {
+                    var exp = new Date();
+                    exp.setTime(exp.getTime() - 1);
+                    var cval = getCookie(name);
+                    if(cval != null)
+                        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+                }
+                function getCookie(c_name) {
+                    if(document.cookie.length > 0) {
+                        c_start = document.cookie.indexOf(c_name + "=")
+                        if(c_start != -1) {
+                            c_start = c_start + c_name.length + 1
+                            c_end = document.cookie.indexOf(";", c_start)
+                            if(c_end == -1) c_end = document.cookie.length
+                            return unescape(document.cookie.substring(c_start, c_end))
+                        }
+                    }
+                    return ""
+                }
+                deleteCookie("sxh1");
+            deleteCookie("sxh2");
+            deleteCookie("sxh3");
+            deleteCookie("uuid");
+            deleteCookie("startTime");
+            deleteCookie("endTime");
+            deleteCookie("highQualityId");
+            deleteCookie("genderId");
+            deleteCookie("hotId");
+            deleteCookie("osId");
+            deleteCookie("numTypeId");
+            deleteCookie("maskId");
+            deleteCookie("verifyStatusId");
+            deleteCookie("orderId");
+            deleteCookie("statusId");
+            deleteCookie("foulTypeId");
+            })
+        </script>
+
+        
+</body>
+
+
+</html>

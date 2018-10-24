@@ -1,0 +1,98 @@
+
+<!-- 分页插件 -->
+<link href="/public/css/common/mytools.css" rel="stylesheet">
+<style>
+    .shieldlog .md-radio{
+        display: block!important;
+    }
+    .pageTest{ width: 400px; height: 50px;margin: 0 auto; margin-top: 40px;display:block;}
+    .activP{
+        background-color: #337ab7!important;
+        color: #fff!important;
+    }
+    table tbody tr td button{
+        float: left;
+    }
+    .md-radio{
+        display: inline-block;
+    }
+    .form-group{
+        margin-top: 5px;
+    }
+</style>
+<!-- <div class="breadcrumbs" style="margin-top: 120px;">
+    <h1><i class="icon-users" style="padding-right: 10px;"></i>广告管理</h1>
+    <ol class="breadcrumb">
+        <li>投诉管理</li>
+        <li class="active">待投诉管理</li>
+    </ol>
+</div> -->
+
+<div class="page-content-row" style="margin-top: 100px;">
+    <!-- BEGIN PAGE SIDEBAR -->
+    <!-- END PAGE SIDEBAR -->
+    <div class="page-content-col" style="padding-left:0;">
+        <!-- BEGIN PAGE BASE CONTENT -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered bordereds">
+                    <div class="portlet-title">
+                        
+                        <div class="caption" style="color: #36C6D3">
+                        <i class="icon-notebook" style="color: #36C6D3"></i>查询验证码</div>
+                        <div class="tools"></div>
+                    </div>
+                    <div class="portlet-body">
+                        <input id="mobile" style="width: 180px!important;" class="form-control input-sm input-small input-inline" type="text" placeholder="请输入手机号">
+                        <button class="btn btn-success" id="mobileBtn">确认</button>
+                        <span style="color: red;" id="codemsg"></span>
+                    </div>
+                   
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+        <!-- END PAGE BASE CONTENT -->
+    </div>
+</div>
+
+    <!--表格结束-->
+        <script src="/public/js/common/mytools.js" type="text/javascript"></script>
+        <script src="/public/js/common/bootstrap-fileinput.js" type="text/javascript"></script>
+        <script>
+            $('.navbar-nav li.dropdown-fw').eq(4).addClass("open selected").siblings().removeClass("open selected");
+            $('.dropdown5 ul.dropdown-menu-fw>li').eq(6).addClass("active").siblings().removeClass("active");
+            $('#mobileBtn').on('click',function(){
+                var tel = $('#mobile').val();
+                queryCode(tel);
+            })
+
+            $('#mobile').on('focus',function(){
+                $('#codemsg').html('');
+            })
+
+             function queryCode(tel){
+                $.ajax({
+                     type: "post",
+                     url: '/New/Account/getAccountCode',
+                     dataType: "json",
+                     async:true,
+                     // contentType: 'application/json',
+                     data:{
+                        mobile:tel
+                     },
+                     success: function(data){
+                        if(data.data != false ){
+                            var msg = '验证码:'+data.data;
+                            $('#codemsg').html(msg);
+                        }else{
+                            $('#codemsg').html('无验证码');
+                        }
+                     },
+                     error:function (){    
+                               
+                     }
+                 });
+            } 
+        </script>
+   

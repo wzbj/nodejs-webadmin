@@ -1,0 +1,690 @@
+<!--时间插件开始-->
+<link href="/public/css/common/daterangepicker-bs3.css"  rel="stylesheet"/>
+<link href="/public/css/common/daterangepicker-1.3.7.css" rel="stylesheet" />
+<link href="/public/css/common/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!--时间插件结束-->
+<link href="/public/css/common/mytools.css" rel="stylesheet">
+<style>
+    .shieldlog .md-radio{
+        display: block!important;
+    }
+    table tbody tr td button{
+        float: left;
+    }
+    .md-radio{
+        display: inline-block;
+    }
+    .form-group{
+        margin-top: 5px;
+    }
+    .line{
+        margin-top: 20px;
+    }
+    .line input,.line select{
+        /*width: 500px!important;*/
+        height: 36px!important;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+        background: red!important;
+      box-shadow:0 0 0 60px white  inset!important;
+      -webkit-text-fill-color: #878787;
+    }
+    #reportrange11{width: 320px;}
+    @media (max-width: 768px) {
+        #reportrange11{
+            width:250px!important;
+        }
+    }
+    /*上传图片*/
+    *{padding: 0;margin: 0;}
+body{background: #f5f5f5;}
+ul{list-style: none;}
+img{vertical-align: middle;border: 0;}
+/*demo标题*/
+
+.upload-content{
+            /*width: 682px;*/
+            width: 782px;
+        /*margin: 0 auto;*/
+        font-size: 12px;
+        color: #666;
+        padding: 20px;
+        background: #ccc;
+}
+.upload-content .content-img{
+        width: 782px;
+}
+.upload-content .content-img-list{
+        display: inline;
+        width: 782px;
+}
+.upload-content .content-img .ico-plus{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-left: 2px;
+    width: 28px;
+    height: 28px;
+    background: url('https://caiyunupload.b0.upaiyun.com/newweb/imgs/icon-plus.png') center/28px 28px;
+}
+.upload-content .content-img-list-item{
+    position: relative;
+    display: inline-block;
+    width: 165px;
+    height: 96px;
+    margin-top: 20px;
+    margin-left: 7px;
+    background: rgba(0,0,0,0.2);
+}
+.upload-content .content-img-list-item:first-child{
+     margin-left: 0;
+}
+.upload-content .content-img-list-item .hide{
+    display: none;
+}
+.upload-content .content-img-list-item .delete-btn{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    height: 28px;
+    line-height: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+.upload-content .content-img-list-item .ico-delete{
+    display: inline-block;
+    vertical-align: middle;
+    width: 12px;
+    height: 13px;
+    background: url('https://caiyunupload.b0.upaiyun.com/newweb/imgs/icon-delete.png') center/12px 13px;
+}
+.upload-content .content-img-list-item img{
+    width: 165px;
+    height: 96px;
+    object-fit: contain;
+}
+.upload-content .upload-tips{
+        padding-top: 10px;
+        text-align: right;
+        width: 100%;
+}
+/*图片上传按钮*/
+.upload-content .file {
+    position: relative;
+    display: inline-block;
+    border: 1px dashed #DEDEDE;
+    border-radius: 4px;
+    color: #999999;
+    text-decoration: none;
+    text-indent: 0;
+    width: 165px;
+    height: 96px;
+    line-height: 96px;
+        margin-top: 20px;
+}
+.upload-content .file input {
+    position: absolute;
+    font-size: 0px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 165px;
+    height: 96px!important;
+}
+.upload-content .file:hover {
+    color: #999999;
+}
+.upload-submit{
+        text-align: center;
+    margin-top: 50px;
+}
+.upload-submit .btn-submit-upload{
+        display: inline-block;
+    width: 170px;
+    height: 40px;
+    text-align: center;
+    line-height: 38px;
+    font-size: 14px;
+    box-sizing: border-box;
+        background: #ff8819;
+    color: #fff;
+    border: 1px solid #ff8819;
+    border-radius: 2px;
+    text-decoration: none;
+}
+</style>
+<!-- <div class="breadcrumbs" style="margin-top: 120px;">
+    <h1><i class="icon-users" style="padding-right: 10px;"></i>广告管理</h1>
+    <ol class="breadcrumb">
+        <li>投诉管理</li>
+        <li class="active">待投诉管理</li>
+    </ol>
+</div> -->
+
+<div class="page-content-row" style="margin-top: 100px;">
+    <!-- BEGIN PAGE SIDEBAR -->
+    <!-- END PAGE SIDEBAR -->
+    <div class="page-content-col" style="padding-left:0;">
+        <!-- BEGIN PAGE BASE CONTENT -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                <div class="portlet light bordered bordereds">
+                    <div class="portlet-title">
+                        
+                        <div class="caption" style="color: #36C6D3">
+                        <i class="icon-notebook" style="color: #36C6D3"></i>注册账号</div>
+                        <div class="tools"></div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="row line">
+                                   <input id="mobile" class="form-control input-lg input-large input-inline" autocomplete="off" value="122" type="text" placeholder="请输入手机号">
+                                </div>
+                                <!-- <div class="row line">
+                                   <input id="pwd" class="form-control input-lg input-large input-inline" autocomplete="off" type="text" placeholder="密码">
+                                </div> -->
+                                <div class="row line md-radio-inline">
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_2" name="radio1" value="1" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_2">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>男</label>
+                                    </div>
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_3" name="radio1" value="2" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_3">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>女</label>
+                                    </div>
+                                </div>
+                                <div class="row line">
+                                   <input id="nickName" class="form-control input-lg input-large input-inline" value="123456" autocomplete="off" type="text" placeholder="昵称">
+                                </div>
+                               <!--  <div class="row line">
+                                   <select name="" class="form-control input-large input-lg" id="" >
+                                       <option value="">北京</option>
+                                       <option value="">上海</option>
+                                       <option value="">天津</option>
+                                       <option value="">香港</option>
+                                       <option value="">广州</option>
+                                       <option value="">珠海</option>
+                                       <option value="">深圳</option>
+                                       <option value="">杭州</option>
+                                       <option value="">重庆</option>
+                                       <option value="">青岛</option>
+                                       <option value="">厦门</option>
+                                       <option value="">福州</option>
+                                       <option value="">兰州</option>
+                                       <option value="">贵阳</option>
+                                       <option value="">长沙</option>
+                                       <option value="">南京</option>
+                                       <option value="">南昌</option>
+                                       <option value="">沈阳</option>
+                                       <option value="">太原</option>
+                                       <option value="">成都</option>
+                                       <option value="">拉萨</option>
+                                       <option value="">乌鲁木齐</option>
+                                       <option value="">昆明</option>
+                                       <option value="">西安</option>
+                                       <option value="">西宁</option>
+                                       <option value="">银川</option>
+                                       <option value="">兰浩特</option>
+                                       <option value="">哈尔滨</option>
+                                       <option value="">长春</option>
+                                       <option value="">武汉</option>
+                                       <option value="">郑州</option>
+                                       <option value="">石家庄</option>
+                                       <option value="">三亚</option>
+                                       <option value="">海口</option>
+                                       <option value="">澳门</option>
+                                   </select>
+                                </div> -->
+                                <div class="row line">
+                                    <div class="container-fluid">
+                                        <div class="row-fluid" style="margin-top:5px">
+                                            <div class="span4">
+                                                <div class="control-group">
+                                                    <div class="controls">
+                                                        <div id="reportrange11" class="pull-left dateRange">
+                                                            <i class="glyphicon glyphicon-calendar fa fa-calendar" style="margin-right: 15px;"></i>
+                                                            <span id="searchDateRange"></span>
+                                                            <b class="caret"></b>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row line" style="display: none;">
+                                   <input id="sign" class="form-control input-lg input-large input-inline" autocomplete="off" type="text" placeholder="个性签名(非必填)">
+                                </div>
+                                <div class="row line md-radio-inline" style="display: none;">
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_4" name="radio2" value="1" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_4">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>LGBT</label>
+                                    </div>
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_5" name="radio2" value="2" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_5">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>释放</label>
+                                    </div>
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_6" name="radio2" value="1" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_6">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>冥想</label>
+                                    </div>
+                                    <div class="md-radio">
+                                        <input type="radio" id="checkbox2_7" name="radio2" value="2" class="md-radiobtn selectRadio">
+                                        <label for="checkbox2_7">
+                                            <span></span>
+                                            <span class="check"></span>
+                                            <span class="box"></span>灵魂社交</label>
+                                    </div>
+                                </div>
+                              
+                                <div class="row line md-radio-inline" id="tagsList" style="display: block;width: 482px;">
+                                    <label style="min-width:76px;" class="mt-checkbox">
+                                        <input type="checkbox" class="inlineCheckbox" value="吃货">吃货<span></span>
+                                    </label>
+                                    <label style="min-width:76px;" class="mt-checkbox">
+                                        <input type="checkbox" class="inlineCheckbox" value="吃货">吃货<span></span>
+                                    </label>
+                                    <label style="min-width:76px;" class="mt-checkbox">
+                                        <input type="checkbox" class="inlineCheckbox" value="吃货">吃货<span></span>
+                                    </label>
+                                   
+                                </div>
+                                <div class="row line">
+                                    <div class="upload-content">
+                                        <div class="content-img">
+                                            <ul class="content-img-list">
+                                                
+                                            </ul>
+                                            <div class="file">
+                                                <i class="ico-plus"></i>上传图片，支持jpg/png
+                                                <input type="file" name="file" accept="image/*" id="upload" multiple="multiple">
+                                            </div>  
+                                        </div>
+                                        <div class="upload-tips">
+                                            请选择一张图片
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4 id="errMsg" style="color: red;line-height: 30px;font-size: 24px;"></h4>
+                                <div class="row line" style="text-align: left;">
+                                    <button class="btn btn-success" id="btn-submit-upload" style="width: 300px;">提交</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                <!-- END EXAMPLE TABLE PORTLET-->
+            </div>
+        </div>
+        <!-- END PAGE BASE CONTENT -->
+    </div>
+</div>
+
+    <!--表格结束-->
+        <!--时间插件开始-->
+        <script src="/public/js/common/moment.js" type="text/javascript"></script>
+        <script src="/public/js/common/daterangepicker-1.3.7.js" type="text/javascript"></script>
+        <script src="/public/js/common/mainTime.js" type="text/javascript"></script>
+        <!--时间插件结束-->
+        <script src="/public/js/common/mytools.js" type="text/javascript"></script>
+        <script src="/public/js/common/bootstrap-fileinput.js" type="text/javascript"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $('.navbar-nav li.dropdown-fw').eq(4).addClass("open selected").siblings().removeClass("open selected");
+            $('.dropdown5 ul.dropdown-menu-fw>li').eq(8).addClass("active").siblings().removeClass("active");
+            var baseArr=[];
+            var tagsArray = ["吃货","隔壁老王","萌萌哒","呆毛","小鲜肉","追风少年","逗比","文艺","热血","宅家","拖延症","老实孩子","乐观主义","随性","吹牛","爱哭","酒鬼","坚强","碎嘴","神道","卖萌","冒险王","匪夷所思","本命年","泡吧","奋斗","小老虎","半仙儿","简单","清纯","花心","呼噜娃","小金刚","pogo","强迫症"];//标签
+            var taglen = tagsArray.length;
+            var tagStr = '';
+            $('#tagsList').empty();
+            console.log(taglen);
+            for(var i=0;i<taglen;i++){
+                tagStr+=' <label style="min-width:76px;" class="mt-checkbox"><input type="checkbox" class="inlineCheckbox" value="'+tagsArray[i]+'">'+ tagsArray[i]+'<span></span></label>';
+            }
+            $('#tagsList').append(tagStr);
+
+
+
+            /**
+         * 图片压缩，默认同比例压缩
+         * @param {Object} path
+         *   pc端传入的路径可以为相对路径，但是在移动端上必须传入的路径是照相图片储存的绝对路径
+         * @param {Object} obj
+         *   obj 对象 有 width， height， quality(0-1)
+         * @param {Object} callback
+         *   回调函数有一个参数，base64的字符串数据
+         */
+        function dealImage(path, obj, callback){
+         var img = new Image();
+         img.src = path;
+         img.onload = function(){
+          var that = this;
+          // 默认按比例压缩
+          var w = that.width,
+           h = that.height,
+           scale = w / h;
+           w = obj.width || w;
+           h = obj.height || (w / scale);
+          var quality = 0.7;  // 默认图片质量为0.7
+          //生成canvas
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          // 创建属性节点
+          var anw = document.createAttribute("width");
+          anw.nodeValue = w;
+          var anh = document.createAttribute("height");
+          anh.nodeValue = h;
+          canvas.setAttributeNode(anw);
+          canvas.setAttributeNode(anh);
+          ctx.drawImage(that, 0, 0, w, h);
+          // 图像质量
+          if(obj.quality && obj.quality <= 1 && obj.quality > 0){
+           quality = obj.quality;
+          }
+          // quality值越小，所绘制出的图像越模糊
+          var base64 = canvas.toDataURL('image/jpeg', quality );
+          // 回调函数返回base64的值
+          callback(base64);
+         }
+        }
+        //base64加密 
+        function readFile(obj){  
+            // var file = obj.files[0];     
+            //判断类型是不是图片 
+             if(!/image\/\w+/.test(obj.type)){    
+                        alert("请确保文件为图像类型");  
+                        return false;  
+             }  
+             var reader = new FileReader();  
+             reader.readAsDataURL(obj);  
+             reader.onload = function(e){
+                    dealImage(this.result,{width:200},function(base){
+                      console.log(base);
+                      baseArr.push(base.split(';base64,')[1]);
+                      // baseArr.push(base);
+                      // return test = base.split(';base64,')[1];
+
+                    // 　　　　document.getElementById('img').setAttribute('src',base)
+                    });
+             }  
+        }
+
+            // 上传图片
+    var imgFile = []; //文件流
+    var imgSrc = []; //图片路径
+    var imgName = []; //图片名字
+var picfile;
+//图片上传
+$('#upload').on('change', function() {
+
+    if(imgSrc.length >= 6) {
+        return alert("最多只能上传6张图片");
+    }
+    var imgBox = '.content-img-list';
+    var fileList = this.files;
+    var _old = imgSrc.length;//已有图片
+    var _choose =  fileList.length;//选中图片
+    if(_choose <= 6 - _old){//不多于五张
+        for(var i = 0; i < _choose; i++) {
+            var imgSrcI = getObjectURL(fileList[i]);
+            imgName.push(fileList[i].name);
+            imgSrc.push(imgSrcI);
+            imgFile.push(fileList[i]);
+        }
+       
+       
+    }else{
+        return alert("最多只能上传6张图片");
+    }
+    
+    if(imgSrc.length >= 6) { //隐藏上传按钮
+        $('.content-img .file').hide();
+    }
+    addNewContent(imgBox);
+    this.value = null; //解决无法上传相同图片的问题
+})
+
+//提交请求
+$('#btn-submit-upload').on('click', function() {
+    baseArr =[];
+
+    for(var i=0;i<imgFile.length;i++){
+        console.log(imgFile[i]);
+        readFile(imgFile[i])
+    }
+    setTimeout(function(){
+         console.log(baseArr);
+        var picBase = baseArr[0];
+        console.log(picBase);
+        var picture = baseArr.slice(1);
+        console.log(baseArr);
+        console.log(picture);
+    
+        var mobile = '86'+ $('#mobile').val();
+        var password = $('#pwd').val();
+        var nickName = $('#nickName').val();
+        var birthday = $('#searchDateRange').text();
+        console.log(birthday);
+        var gender = $('input[type="radio"][name="radio1"]:checked').val();
+        var age = jsGetAge(birthday);
+        var month = birthday.split('-')[1];
+        var day = birthday.split('-')[2];
+        var constellation = getAstro(month,day)+'座';
+       
+        // console.log(picBase);
+        // console.log(picture);
+        // 打标签内容
+        var checkTag='';
+        // var test = [1,2]
+        $.each($('.mt-checkbox input:checkbox'),function(){
+            if(this.checked){
+                // checkArr.push($(this).val());
+                checkTag += ($(this).val()+'|')
+            }
+        });
+        var checkTags =checkTag.substr(0,checkTag.length-1); 
+
+        // console.log(checkTag.length-1);
+        
+        if(mobile == ''){
+            $('#errMsg').text('手机号不能为空');
+        }else if(!gender){
+            $('#errMsg').text('请选择性别');
+        }else if(nickName ==''){
+            $('#errMsg').text('昵称不能为空');
+        }else if(!picBase || picBase ==''){
+            $('#errMsg').text('请选择图片');
+        }else{
+            // var formFile = new FormData();
+            // formFile.append('mobile',mobile);
+            // formFile.append('password',password);
+            // formFile.append('nickname',nickName);
+            // formFile.append('gender',gender);
+            // formFile.append('age',age);
+            // formFile.append('constellation',constellation);
+            // formFile.append('birthday',birthday);
+            // formFile.append('avatar',picfile);
+            // formFile.append('smdeviceId','20171216205338f9e74772800d994c890f04a814c68c9801a40fed7c645005');
+            console.log(picture);
+            $.ajax({
+                url:'/New/BatchRegistration/register',
+                type:"POST",
+                dataType:"json",
+                // cache: false,  
+                // contentType: false, 
+                // processData: false, 
+                // data:formFile,
+                data:{
+                    mobile:mobile,
+                    password:'111111',
+                    nickname:nickName,
+                    gender:gender,
+                    age:age,
+                    picture:picture,  
+                    strTag:checkTags,  
+                    constellation:constellation,
+                    birthday:birthday,
+                    avatar:picBase,
+                    smdeviceId:'20171216205338f9e74772800d994c890f04a814c68c9801a40fed7c645005'
+                },
+                success:function(data){
+                    if(data && data.code == '0'){
+                      document.URL=location.href;
+                    }else{
+                        confirm("注册失败");
+                    }           
+                }
+            })
+        }
+
+    },1000)
+
+});
+
+// 鼠标经过显示删除按钮
+$('.content-img-list').on('mouseover', '.content-img-list-item', function() {
+    $(this).children('a').removeClass('hide');
+});
+// 鼠标离开隐藏删除按钮
+$('.content-img-list').on('mouseleave', '.content-img-list-item', function() {
+    $(this).children('a').addClass('hide');
+});
+// 单个图片删除
+$(".content-img-list").on("click", '.content-img-list-item a', function() {
+    var index = $(this).attr("index");
+    imgSrc.splice(index, 1);
+    imgFile.splice(index, 1);
+    imgName.splice(index, 1);
+    var boxId = ".content-img-list";
+    addNewContent(boxId);
+    if(imgSrc.length < 5) { //显示上传按钮
+        $('.content-img .file').show();
+    }
+});
+
+//获取图片index下标属性，通过js的splice方法删除数组元素，重新调用addNewContent方法遍历图片数组显示预览图片
+function removeImg(obj, index) {
+    imgSrc.splice(index, 1);
+    imgFile.splice(index, 1);
+    imgName.splice(index, 1);
+    var boxId = ".content-img-list";
+    addNewContent(boxId);
+}
+
+//创建一个addNewContent方法用于动态展示添加的图片实现图片预览，在每次上传图片的时候调用该方法
+function addNewContent(obj) {
+    // console.log(imgSrc)
+    $(obj).html("");
+    for(var a = 0; a < imgSrc.length; a++) {
+        var oldBox = $(obj).html();
+        $(obj).html(oldBox + '<li class="content-img-list-item"><img src="' + imgSrc[a] + '" alt=""><a index="' + a + '" class="hide delete-btn"><i class="ico-delete"></i></a></li>');
+    }
+}
+
+//getObjectURL方法是一个用于获取本地图片的地址，使用该url可以显示图片
+function getObjectURL(file) {
+    var url = null;
+    if(window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+    } else if(window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+    } else if(window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+}
+// 计算星座方法
+function getAstro(month,day){
+  var s="魔羯水瓶双鱼牡羊金牛双子巨蟹狮子处女天秤天蝎射手魔羯";
+  var arr=[20,19,21,21,21,22,23,23,23,23,22,22];
+  return s.substr(month*2-(day<arr[month-1]?2:0),2);
+}
+// var test = getAstro(07,09)+'座';
+// console.log('星座'+test);
+// 计算周岁年龄方法
+function jsGetAge(strBirthday){       
+    var returnAge;
+    var strBirthdayArr=strBirthday.split("-");
+    var birthYear = strBirthdayArr[0];
+    var birthMonth = strBirthdayArr[1];
+    var birthDay = strBirthdayArr[2];
+    
+    d = new Date();
+    var nowYear = d.getFullYear();
+    var nowMonth = d.getMonth() + 1;
+    var nowDay = d.getDate();
+    
+    if(nowYear == birthYear){
+        returnAge = 0;//同年 则为0岁
+    }
+    else{
+        var ageDiff = nowYear - birthYear ; //年之差
+        if(ageDiff > 0){
+            if(nowMonth == birthMonth) {
+                var dayDiff = nowDay - birthDay;//日之差
+                if(dayDiff < 0)
+                {
+                    returnAge = ageDiff - 1;
+                }
+                else
+                {
+                    returnAge = ageDiff ;
+                }
+            }
+            else
+            {
+                var monthDiff = nowMonth - birthMonth;//月之差
+                if(monthDiff < 0)
+                {
+                    returnAge = ageDiff - 1;
+                }
+                else
+                {
+                    returnAge = ageDiff ;
+                }
+            }
+        }
+        else
+        {
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天
+        }
+    }
+    
+    return returnAge;//返回周岁年龄
+    
+}
+
+// var age = jsGetAge('2000-06-09');
+// console.log('age'+age);
+
+
+
+        </script>
+   
